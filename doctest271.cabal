@@ -1,0 +1,21 @@
+cabal-version:       >=1.10
+name:                doctest271
+version:             0.1.0.0
+build-type:          Custom
+
+library
+  default-language: Haskell2010
+  build-depends: base >= 4.14 && <4.15, units
+  exposed-modules: Example
+
+custom-setup
+ setup-depends:
+   base >= 4 && <5,
+   Cabal,
+   cabal-doctest >= 1 && <1.1
+
+test-suite doctests
+  main-is: test.hs
+  type: exitcode-stdio-1.0
+  build-depends:       base >=4.14 && <4.15, doctest271, doctest, base-compat
+  default-language:    Haskell2010
